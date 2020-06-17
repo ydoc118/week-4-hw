@@ -1,0 +1,15 @@
+.list-group {
+    padding-top: 20%;
+}
+
+#startPage, #startButton {
+    text-align: center;
+}
+
+#startPage {
+    padding-top: 20%;
+}
+
+#startButton {
+    padding-top: 50px;
+}

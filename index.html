@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/style.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">View Leaderboard</a>
+
+        <div id = "timer" class = "nav justify-content-end"></div>
+    </nav>
+
+    <main class = "container">
+
+      <h1 id = "startPage">You have 60 seconds to answer as many questions correctly as you can. Answer a question incorrectly, and 5 seconds will be removed from your time. The time left after you finish will determine your leaderboard score. Good Luck!</h1>
+      <div id= "startButton"><button type="button" class="btn btn-primary">Start Quiz</button></div>
+        
+      <ul id = "quizStart" class="list-group list-group-flush">
+            <h1 id = "questionItem"></h1>
+            <li class="list-group-item"><button id = "firstAnswer" type="button" class="btn btn-primary thirdCorrect">answer 1</button></li>
+            <li class="list-group-item"><button id = "secondAnswer" type="button" class="btn btn-primary firstCorrect">answer 2</button></li>
+            <li class="list-group-item"><button id = "thirdAnswer" type="button" class="btn btn-primary fourthCorrect">answer 3</button></li>
+            <li class="list-group-item"><button id = "fourthAnswer" type="button" class="btn btn-primary secondCorrect">answer 4</button></li>
+          </ul>
+
+          
+    </main>
+
+    <script src="Assets/script.js"></script>
+  </body>
+</html>
+
+
+
+
