@@ -67,7 +67,7 @@ document.getElementById("startButton").onclick = function() {
         answerD.innerHTML = q.answerD;
 
         answerList.addEventListener("click", function(event) {
-            if (event.target.matches("2")) {
+            if (event.target.matches("#secondAnswer")) {
                 console.log("correct");
                 currentQuestion++
                 secondQuestion();
@@ -90,9 +90,6 @@ document.getElementById("startButton").onclick = function() {
         answerList.addEventListener("click", function(event) {
             if (event.target.matches("#fourthAnswer")) {
                 console.log("correct")
-            }
-            else {
-                startingTime-5;
             }
         })
     }
