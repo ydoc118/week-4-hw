@@ -1,4 +1,4 @@
-.list-group {
+.list-group, #startPage {
     padding-top: 20%;
 }
 
@@ -6,10 +6,15 @@
     text-align: center;
 }
 
-#startPage {
+#startButton {
+    padding-top: 50px;
+}
+
+#endingHeader {
+    text-align: center;
     padding-top: 20%;
 }
 
-#startButton {
-    padding-top: 50px;
+.form-row {
+    justify-content: center;
 }

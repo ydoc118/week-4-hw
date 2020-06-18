@@ -1,5 +1,5 @@
 //Assignment Code
-var startingTime = 10;
+var startingTime = 60;
 var quizQuestions = [
     {
         questionEl: "What is 4-2?",
@@ -75,8 +75,8 @@ var answerListThree = document.querySelector(".thirdList");
 var answerListFour = document.querySelector(".fourthList");
 var answerListFive = document.querySelector(".fifthList");
 
-var lastQuestionEl = quizQuestions.length - 1;
 var currentQuestion = 0;
+var submitButtonEl = document.getElementById("submitButton");
 
 console.log(quizQuestions);
 
@@ -88,10 +88,11 @@ document.getElementById("secondQuestion").style.display = "None";
 document.getElementById("thirdQuestion").style.display = "None";
 document.getElementById("fourthQuestion").style.display = "None";
 document.getElementById("fifthQuestion").style.display = "None";
+document.getElementById("endingForm").style.display = "none";
 
 //Timer function
 function timerStart() {
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         startingTime--;
         quizTimer.textContent = "Time Left: " + startingTime;
 
@@ -106,6 +107,7 @@ function timerStart() {
 
 //Starting the quiz
 document.getElementById("startButton").onclick = function() {
+    
     timerStart();
 
     document.getElementById("startPage").style.display = "none";
@@ -134,7 +136,7 @@ document.getElementById("startButton").onclick = function() {
                 startingTime = startingTime - 5;
                 secondQuestion();
             }
-        })
+        });
         
     }
 
@@ -161,9 +163,9 @@ document.getElementById("startButton").onclick = function() {
                 alert("Incorrect!");
                 currentQuestion++
                 startingTime = startingTime - 5;
-                ThirdQuestion();
+                thirdQuestion();
             }
-        })
+        });
     }
 
 
@@ -191,7 +193,7 @@ document.getElementById("startButton").onclick = function() {
                 startingTime = startingTime - 5;
                 fourthQuestion();
             }
-        })
+        });
         
     }
 
@@ -219,7 +221,7 @@ document.getElementById("startButton").onclick = function() {
                 startingTime = startingTime - 5;
                 fifthQuestion();
             }
-        })
+        });
         
     }
 
@@ -238,95 +240,47 @@ document.getElementById("startButton").onclick = function() {
         answerListFive.addEventListener("click", function(event) {
             if (event.target.matches("#secondAnswerFive")) {
                 alert("Correct!");
+                alert("You've reached the end of the quiz!");
+                clearInterval(timerInterval);
+                quizEnd();
             }
             else {
                 alert("Incorrect!");
+                alert("You've reached the end of the quiz!");
+                clearInterval(timerInterval);
+                quizEnd();
             }
-        })
+        });
         
     }
 
     function quizEnd() {
+        document.getElementById("endingForm").style.display = "inherit";
+        document.getElementById("fifthQuestion").style.display = "none";
+        document.getElementById("endingHeader").innerHTML = "Congratulations! Your score was " + startingTime + ". Enter your initials to get onto the scoarboard!";
 
-    }
+        submitButtonEl.addEventListener("click", function(event) {
+            event.preventDefault();
+            userInitials = document.getElementById("inlineFormInput");
+            document.getElementById("endingForm").style.display = "none";
+            storeHighScore();
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /* function firstQuestion() {
-        questionEl.textContent = quizQuestions[0].question;
-        answerA.textContent = quizQuestions[0].answers[0].a;
-        answerB.textContent = quizQuestions[0].answers[1].b;
-        answerC.textContent = quizQuestions[0].answers[2].c;
-        answerD.textContent = quizQuestions[0].answers[3].d;
-
-        document.getElementById("firstAnswer").addEventListener("click", function() {
-            correctFirst = false;
-            console.log("False");
-            secondQuestion();
-        })
-
-        document.getElementById("secondAnswer").addEventListener("click", function() {
-            correctFirst = true;
-            console.log("true");
-            secondQuestion();
-        })
-
-        document.getElementById("thirdAnswer").addEventListener("click", function() {
-            correctFirst = false;
-            console.log("False");
-            secondQuestion();
-        })
-
-        document.getElementById("fourthAnswer").addEventListener("click", function() {
-            correctFirst = false;
-            console.log("False");
-            secondQuestion();
         })
     }
 
-    function secondQuestion() {
+    function storeHighScore () {
 
-        questionEl.textContent = quizQuestions[1].question;
-        answerA.textContent = quizQuestions[1].answers[0].a;
-        answerB.textContent = quizQuestions[1].answers[1].b;
-        answerC.textContent = quizQuestions[1].answers[2].c;
-        answerD.textContent = quizQuestions[1].answers[3].d;
+        var leaderBoardHead = document.createElement("h1");
+        leaderBoardHead.style = "text-align: center"
+        leaderBoardHead.innerHTML = "Leaderboard"
+        document.body.append(leaderBoardHead);
 
-        document.getElementById("firstAnswer").addEventListener("click", function() {
-            correctSecond = false;
-            console.log("False");
-        })
+        var leaderBoardTable = document.createElement("h3");
+        leaderBoardTable.style = "text-align: center"
+        leaderBoardTable.innerHTML = userInitials;
+        document.body.append(leaderBoardTable)
+        
 
-        document.getElementById("secondAnswer").addEventListener("click", function() {
-            correctSecond = false;
-            console.log("false");
-        })
+    }
 
-        document.getElementById("thirdAnswer").addEventListener("click", function() {
-            correctSecond = false;
-            console.log("False");
-        })
-
-        document.getElementById("fourthAnswer").addEventListener("click", function() {
-            correctSecond = true;
-            console.log("true");
-        })
-    }*/
 }
