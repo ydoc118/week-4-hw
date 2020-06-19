@@ -80,6 +80,8 @@ var submitButtonEl = document.getElementById("submitButton");
 
 console.log(quizQuestions);
 
+
+
 //Display elements
 document.getElementById("timer").textContent = "Time Left: " + startingTime;
     
@@ -104,6 +106,8 @@ function timerStart() {
     }, 1000);
 
 }
+
+
 
 //Starting the quiz
 document.getElementById("startButton").onclick = function() {
@@ -263,13 +267,16 @@ document.getElementById("startButton").onclick = function() {
             event.preventDefault();
             userInitials = document.getElementById("inlineFormInput").value;
             document.getElementById("endingForm").style.display = "none";
-            storeHighScore();
+            createHighScore();
 
         })
     }
 
-    function storeHighScore() {
+    
 
+    function createHighScore() {
+
+        
         var leaderBoardHead = document.createElement("h1");
         leaderBoardHead.style = "text-align: center"
         leaderBoardHead.innerHTML = "Leaderboard"
@@ -277,10 +284,10 @@ document.getElementById("startButton").onclick = function() {
 
         var leaderBoardTable = document.createElement("h3");
         leaderBoardTable.style = "text-align: center"
-        leaderBoardTable.innerHTML = userInitials + " - " + startingTime;
+        leaders = leaderBoardTable.innerHTML = userInitials + " - " + startingTime;
         document.body.append(leaderBoardTable)
-        
-
     }
+    
+    
 
 }
