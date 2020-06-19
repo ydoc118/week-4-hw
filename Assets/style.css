@@ -18,3 +18,11 @@
 .form-row {
     justify-content: center;
 }
+
+body {
+    background-image: url("buccaneers.jpg");
+    background-size: cover;
+    color: 	black;
+}
+
+

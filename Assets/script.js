@@ -2,39 +2,39 @@
 var startingTime = 60;
 var quizQuestions = [
     {
-        questionEl: "What is 4-2?",
-        answerA: "1",
-        answerB: "2",
-        answerC: "3",
-        answerD: "4"
+        questionEl: "Who is the Buccaneers starting Quarterback?",
+        answerA: "Jameis Winston",
+        answerB: "Tom Brady",
+        answerC: "Mike Evans",
+        answerD: "Joe Namath"
     },
     {
-        questionElTwo: "What is 10-5?",
-        answerATwo: "1",
-        answerBTwo: "2",
-        answerCTwo: "4",
-        answerDTwo: "5"
+        questionElTwo: "In what year did the Buccaneers win the Superbowl?",
+        answerATwo: "2015",
+        answerBTwo: "1982",
+        answerCTwo: "1998",
+        answerDTwo: "2003"
     },
     {
-        questionElThree: "What is 2+2",
+        questionElThree: "In 2019, how many interceptions did Jameis Winston throw?",
         answerAThree: "10",
         answerBThree: "12",
-        answerCThree: "4",
+        answerCThree: "30",
         answerDThree: "1"
 },
  {
-      questionElFour: "What's my name?",
-        answerAFour: "Cody",
-        answerBFour: "Brett",
-        answerCFour: "Jake",
-        answerDFour: "Max"
+      questionElFour: "How long have the Buccaneers been in the NFL?",
+        answerAFour: "44 years",
+        answerBFour: "100 years",
+        answerCFour: "23 years",
+        answerDFour: "They're a brand new team"
     },
     {
-        questionElFive: "How old am I?",
-        answerAFive: "22",
-        answerBFive: "30",
-        answerCFive: "18",
-        answerDFive: "45"
+        questionElFive: "Who is going to win the superbowl this year?",
+        answerAFive: "New England Patriots",
+        answerBFive: "Tampa Bay Buccaneers",
+        answerCFive: "Pittsburg Steelers",
+        answerDFive: "Philadelphia Eagles"
     }
 ];
 var quizTimer = document.getElementById("timer");
@@ -261,14 +261,14 @@ document.getElementById("startButton").onclick = function() {
 
         submitButtonEl.addEventListener("click", function(event) {
             event.preventDefault();
-            userInitials = document.getElementById("inlineFormInput");
+            userInitials = document.getElementById("inlineFormInput").value;
             document.getElementById("endingForm").style.display = "none";
             storeHighScore();
 
         })
     }
 
-    function storeHighScore () {
+    function storeHighScore() {
 
         var leaderBoardHead = document.createElement("h1");
         leaderBoardHead.style = "text-align: center"
@@ -277,7 +277,7 @@ document.getElementById("startButton").onclick = function() {
 
         var leaderBoardTable = document.createElement("h3");
         leaderBoardTable.style = "text-align: center"
-        leaderBoardTable.innerHTML = userInitials;
+        leaderBoardTable.innerHTML = userInitials + " - " + startingTime;
         document.body.append(leaderBoardTable)
         
 
